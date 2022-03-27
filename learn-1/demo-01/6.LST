@@ -1,0 +1,42 @@
+Microsoft (R) Macro Assembler Version 6.11		    03/27/22 13:23:22
+6.asm							     Page 1 - 1
+
+
+				assume cs:code
+
+ 0000				code segment
+
+ 0000  B8 0002			    mov ax, 2
+ 0003  B9 000B			    mov cx, 11
+				  ;ÂÅ?1Ê¨°add ax, ax
+ 0006  03 C0			s:  add ax, ax
+ 0008  E2 FC			    loop s
+				  
+ 000A  B8 4C00			    mov ax, 4c00H
+ 000D  CD 21			    int 21H
+
+
+ 000F				code ends
+
+				end
+Microsoft (R) Macro Assembler Version 6.11		    03/27/22 13:23:22
+6.asm							     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+code . . . . . . . . . . . . . .	16 Bit	 000F	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+s  . . . . . . . . . . . . . . .	L Near	 0006	  code	
+
+	   0 Warnings
+	   0 Errors
