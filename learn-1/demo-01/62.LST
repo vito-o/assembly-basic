@@ -1,0 +1,51 @@
+Microsoft (R) Macro Assembler Version 6.11		    04/26/22 13:43:44
+62.asm							     Page 1 - 1
+
+
+				assume cs:code
+
+ 0000				data segment
+ 0000  63 6F 6E 76 65 72	  db 'conversation'
+       73 61 74 69 6F 6E
+ 000C				data ends
+
+ 0000				code segment
+ 0000  B8 ---- R		  start:  mov ax, data
+ 0003  8E D8			          mov ds, ax
+ 0005  BE 0000			          mov si, 0
+ 0008  B9 000C			          mov cx, 12
+ 000B  E8 0005			          call capital
+
+ 000E  B8 4C00			          mov ax, 4c00h
+ 0011  CD 21			          int 21h
+
+ 0013  80 24 DF			  capital:and byte ptr [si], 11011111b
+ 0016  46			          inc si
+ 0017  E2 FA			          loop capital
+ 0019  C3			          ret
+ 001A				code ends
+
+				end start
+Microsoft (R) Macro Assembler Version 6.11		    04/26/22 13:43:44
+62.asm							     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+code . . . . . . . . . . . . . .	16 Bit	 001A	  Para	  Private 
+data . . . . . . . . . . . . . .	16 Bit	 000C	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+capital  . . . . . . . . . . . .	L Near	 0013	  code	
+start  . . . . . . . . . . . . .	L Near	 0000	  code	
+
+	   0 Warnings
+	   0 Errors
